@@ -1,4 +1,5 @@
 
+import tripRoutes from "./routes/tripRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import connectDB from "./config/db.js";
 import express from "express";
@@ -18,6 +19,7 @@ app.use(
 
 app.use(express.json());
 app.use("/api/auth", authRoutes);
+app.use("/api/trip", tripRoutes);
 
 app.get("/", (req, res) => {
     res.send("TripGenie API Running...");

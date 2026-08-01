@@ -1,0 +1,41 @@
+import mongoose from "mongoose";
+
+const tripSchema = new mongoose.Schema(
+  {
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+
+    tripTitle: {
+      type: String,
+      required: true,
+    },
+
+    destination: {
+      type: String,
+      required: true,
+    },
+
+    totalBudget: {
+      type: String,
+      required: true,
+    },
+
+    days: {
+      type: Array,
+      required: true,
+    },
+
+    travelTips: {
+      type: Array,
+      default: [],
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+export default mongoose.model("Trip", tripSchema);

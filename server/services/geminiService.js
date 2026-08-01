@@ -25,5 +25,10 @@ export async function generateTrip(prompt) {
     throw new Error(data.error?.message || "Gemini API Error");
   }
 
-  return data.candidates[0].content.parts[0].text;
+  let text = data.candidates[0].content.parts[0].text.trim();
+
+  // Remove markdown code fences if Gemini adds them
+  text = text.replace(/```json/g, "").replace(/```/g, "").trim();
+
+  return JSON.parse(text);
 }

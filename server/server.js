@@ -1,4 +1,5 @@
 
+import tripHistoryRoutes from "./routes/tripHistoryRoutes.js";
 import tripRoutes from "./routes/tripRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import connectDB from "./config/db.js";
@@ -18,6 +19,8 @@ app.use(
 );
 
 app.use(express.json());
+
+app.use("/api/history", tripHistoryRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/trip", tripRoutes);
 

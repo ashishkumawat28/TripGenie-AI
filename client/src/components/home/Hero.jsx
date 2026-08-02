@@ -1,44 +1,58 @@
-import SearchBox from "./SearchBox";
-import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import heroImage from "../../assets/hero1.png";
 
 function Hero() {
+  const navigate = useNavigate();
+
   return (
-    <section
-      className="relative h-screen flex items-center justify-center bg-cover bg-center"
-      style={{
-        backgroundImage:
-          "url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80')",
-      }}
-    >
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/50"></div>
+    <section className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-blue-100 flex items-center">
+      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
 
-      {/* Hero Content */}
-      <motion.div
-        className="relative z-10 text-center text-white px-6"
-        initial={{ opacity: 0, y: 60 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-      >
-        <h1 className="text-5xl md:text-7xl font-bold">
-          Plan Your Dream Trip
-        </h1>
+        <div>
+          <span className="bg-blue-100 text-blue-700 px-4 py-2 rounded-full font-semibold">
+            ✈️ AI Powered Travel Planner
+          </span>
 
-        <span className="block text-blue-400 mt-2">
-          with AI
-        </span>
+          <h1 className="text-6xl font-extrabold mt-6 leading-tight">
+            Plan Your
+            <span className="text-blue-600"> Dream Vacation </span>
+            with AI
+          </h1>
 
-        <p className="mt-6 text-lg md:text-xl max-w-2xl mx-auto">
-          Generate personalized travel itineraries,
-          discover amazing destinations,
-          and plan unforgettable journeys using AI.
-        </p>
+          <p className="text-gray-600 text-xl mt-6 leading-8">
+            Generate personalized travel itineraries, discover amazing
+            destinations, save trips, and manage your adventures with
+            TripGenie AI.
+          </p>
 
-        <button className="mt-10 bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-xl text-lg font-semibold transition">
-          Start Planning
-        </button>
-      </motion.div>
-      <SearchBox />
+          <div className="flex gap-5 mt-10">
+
+            <button
+              onClick={() => navigate("/register")}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl text-lg font-semibold transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
+            >
+              🚀 Get Started
+            </button>
+
+            <button
+              onClick={() => navigate("/login")}
+              className="border border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-xl text-lg font-semibold transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
+            >
+              Login
+            </button>
+
+          </div>
+        </div>
+
+        <div className="flex justify-center">
+          <img
+            src={heroImage}
+            alt="Travel"
+            className="w-full max-w-lg"
+          />
+        </div>
+
+      </div>
     </section>
   );
 }

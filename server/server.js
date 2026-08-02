@@ -1,4 +1,6 @@
 
+import weatherRoutes from "./routes/weatherRoutes.js";
+import dashboardRoutes from "./routes/dashboardRoutes.js";
 import tripHistoryRoutes from "./routes/tripHistoryRoutes.js";
 import tripRoutes from "./routes/tripRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
@@ -20,6 +22,8 @@ app.use(
 
 app.use(express.json());
 
+app.use("/api/weather", weatherRoutes);
+app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/history", tripHistoryRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/trip", tripRoutes);
@@ -34,3 +38,6 @@ await connectDB();
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
+
+

@@ -26,19 +26,21 @@ function PopularDestinations() {
   ];
 
   return (
-    <section className="py-20 bg-gray-100">
+    <section id="destinations" className="py-20 bg-gray-100">
       <h2 className="text-4xl font-bold text-center">
         Popular Destinations
       </h2>
 
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 px-6">
         {destinations.map((destination) => (
-          <DestinationCard
-            key={destination.id}
-            name={destination.name}
-            country={destination.country}
-            image={destination.image}
-          />
+          <div className="transition duration-300 hover:-translate-y-2 hover:shadow-2xl">
+            <DestinationCard
+              key={destination.id}
+              name={destination.name}
+              country={destination.country}
+              image={destination.image}
+            />
+          </div>
         ))}
       </div>
     </section>

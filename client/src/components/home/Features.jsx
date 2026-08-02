@@ -1,6 +1,6 @@
 function Features() {
   return (
-    <section className="py-20 bg-white">
+    <section id="features" className="py-20 bg-white">
 
       <h2 className="text-4xl font-bold text-center">
         Why Choose TripGenie AI?
@@ -8,7 +8,7 @@ function Features() {
 
       <div className="max-w-6xl mx-auto mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
 
-        <div className="shadow-lg rounded-xl p-6 text-center">
+        <div className="shadow-lg rounded-xl p-6 text-center transition duration-300 hover:-translate-y-1 hover:shadow-xl">
           <h3 className="text-2xl font-semibold">🤖 AI Planner</h3>
 
           <p className="mt-4 text-gray-600">
@@ -16,7 +16,7 @@ function Features() {
           </p>
         </div>
 
-        <div className="shadow-lg rounded-xl p-6 text-center">
+        <div className="shadow-lg rounded-xl p-6 text-center transition duration-300 hover:-translate-y-1 hover:shadow-xl">
           <h3 className="text-2xl font-semibold">💰 Budget Planning</h3>
 
           <p className="mt-4 text-gray-600">
@@ -24,7 +24,7 @@ function Features() {
           </p>
         </div>
 
-        <div className="shadow-lg rounded-xl p-6 text-center">
+        <div className="shadow-lg rounded-xl p-6 text-center transition duration-300 hover:-translate-y-1 hover:shadow-xl">
           <h3 className="text-2xl font-semibold">📍 Smart Recommendations</h3>
 
           <p className="mt-4 text-gray-600">

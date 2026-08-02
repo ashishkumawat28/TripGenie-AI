@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import WeatherCard from "../../components/trip/WeatherCard";
+
 
 import tripAPI from "../../api/tripApi";
 
@@ -13,6 +15,7 @@ function Planner() {
 
   const [trip, setTrip] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [weather, setWeather] = useState(null);
 
   const onSubmit = async (data) => {
     try {
@@ -23,6 +26,12 @@ function Planner() {
       console.log("API Response:", res.data);
 
       setTrip(res.data.trip);
+
+      const weatherRes = await tripAPI.get(
+        `/weather/${encodeURIComponent(res.data.trip.destination)}`
+      );
+
+      setWeather(weatherRes.data.weather);
 
       toast.success("Trip Generated Successfully");
 
@@ -124,6 +133,7 @@ function Planner() {
 
           <TripHeader trip={trip} />
 
+          <WeatherCard weather={weather} />
           {Array.isArray(trip.days) &&
             trip.days.map((day) => (
               <DayCard

@@ -1,4 +1,5 @@
 
+import imageRoutes from "./routes/imageRoutes.js";
 import weatherRoutes from "./routes/weatherRoutes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js";
 import tripHistoryRoutes from "./routes/tripHistoryRoutes.js";
@@ -22,6 +23,7 @@ app.use(
 
 app.use(express.json());
 
+app.use("/api/image", imageRoutes);
 app.use("/api/weather", weatherRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/history", tripHistoryRoutes);

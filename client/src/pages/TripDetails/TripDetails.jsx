@@ -83,6 +83,7 @@ function TripDetails() {
           <DayCard
             key={day.day}
             day={day}
+            destination={trip.destination}
           />
         ))}
 

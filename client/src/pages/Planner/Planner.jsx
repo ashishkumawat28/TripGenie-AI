@@ -3,7 +3,8 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import WeatherCard from "../../components/trip/WeatherCard";
 
-
+import DestinationImage from "../../components/trip/DestinationImage";
+import { generateTripPDF } from "../../utils/pdfGenerator";
 import tripAPI from "../../api/tripApi";
 
 import TripHeader from "../../components/trip/TripHeader";
@@ -13,6 +14,7 @@ import TravelTips from "../../components/trip/TravelTips";
 function Planner() {
   const { register, handleSubmit, reset } = useForm();
 
+  const [image, setImage] = useState("");
   const [trip, setTrip] = useState(null);
   const [loading, setLoading] = useState(false);
   const [weather, setWeather] = useState(null);
@@ -32,6 +34,12 @@ function Planner() {
       );
 
       setWeather(weatherRes.data.weather);
+
+      const imageRes = await tripAPI.get(
+        `/image/${encodeURIComponent(res.data.trip.destination)}`
+      );
+
+      setImage(imageRes.data.image);
 
       toast.success("Trip Generated Successfully");
 
@@ -131,6 +139,21 @@ function Planner() {
       {trip && (
         <div className="w-full max-w-5xl mt-10">
 
+          <div className="flex justify-end mb-5">
+            
+            <button
+              onClick={() => generateTripPDF(trip)}
+              className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg transition"
+            >
+              📄 Download PDF
+            </button>
+          </div>
+
+          <DestinationImage
+            image={image}
+            destination={trip.destination}
+          />
+          
           <TripHeader trip={trip} />
 
           <WeatherCard weather={weather} />

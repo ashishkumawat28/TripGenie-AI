@@ -1,21 +1,32 @@
 import Trip from "../models/tripModel.js";
 
-export const getDashboardData = async (req, res) => {
+export const getDashboardStats = async (req, res) => {
   try {
-    const trips = await Trip.find({ user: req.user._id })
-      .sort({ createdAt: -1 })
-      .limit(3);
-
-    const totalTrips = await Trip.countDocuments({
-      user: req.user._id,
+    // Get all trips of logged-in user
+    const trips = await Trip.find({ user: req.user._id }).sort({
+      createdAt: -1,
     });
+
+    const totalTrips = trips.length;
+
+    // Count unique destinations
+    const uniqueDestinations = [
+      ...new Set(trips.map((trip) => trip.destination)),
+    ];
+
+    const totalDestinations = uniqueDestinations.length;
+
+    // Latest trip
+    const latestTrip = trips.length > 0 ? trips[0] : null;
 
     res.status(200).json({
       success: true,
-      totalTrips,
-      recentTrips: trips,
+      stats: {
+        totalTrips,
+        totalDestinations,
+        latestTrip,
+      },
     });
-
   } catch (error) {
     res.status(500).json({
       success: false,

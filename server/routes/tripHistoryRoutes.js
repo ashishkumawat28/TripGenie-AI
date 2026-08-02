@@ -1,5 +1,6 @@
 import express from "express";
 
+import { getTripCount } from "../controllers/tripHistoryController.js";
 import { saveTrip } from "../controllers/tripHistoryController.js";
 import { protect } from "../middleware/authMiddleware.js";
 import { getAllTrips } from "../controllers/tripHistoryController.js";
@@ -9,6 +10,8 @@ const router = express.Router();
 
 router.post("/save", protect, saveTrip);
 router.get("/", protect, getAllTrips);
+router.get("/count", protect, getTripCount);
+
 router.get("/:id", protect, getTripById);
 router.delete("/:id", protect, deleteTrip);
 

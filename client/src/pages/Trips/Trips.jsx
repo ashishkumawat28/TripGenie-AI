@@ -72,9 +72,29 @@ function Trips() {
       </h1>
 
       {trips.length === 0 ? (
-        <p className="text-center text-gray-500">
-          No Trips Found
-        </p>
+        <div className="flex flex-col items-center justify-center py-20">
+
+          <div className="text-8xl mb-6">
+            🧳
+          </div>
+
+          <h2 className="text-3xl font-bold text-gray-700">
+            No Trips Yet
+          </h2>
+
+          <p className="text-gray-500 mt-3 text-lg text-center">
+            Generate your first AI-powered itinerary and
+            start exploring the world.
+          </p>
+
+          <button
+            onClick={() => navigate("/planner")}
+            className="mt-8 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold shadow-lg transition"
+          >
+            ✨ Generate Your First Trip
+          </button>
+
+        </div>
       ) : (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 

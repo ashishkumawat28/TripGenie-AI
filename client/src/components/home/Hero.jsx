@@ -5,21 +5,21 @@ function Hero() {
   const navigate = useNavigate();
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-blue-100 flex items-center">
+    <section id="hero" className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-blue-100 flex items-center transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
 
         <div>
-          <span className="bg-blue-100 text-blue-700 px-4 py-2 rounded-full font-semibold">
+          <span className="bg-blue-100 text-blue-700  px-4 py-2 rounded-full font-semibold">
             ✈️ AI Powered Travel Planner
           </span>
 
-          <h1 className="text-6xl font-extrabold mt-6 leading-tight">
+          <h1 className="  text-6xl font-extrabold mt-6 leading-tight">
             Plan Your
-            <span className="text-blue-600"> Dream Vacation </span>
+            <span className="text-blue-600 "> Dream Vacation </span>
             with AI
           </h1>
 
-          <p className="text-gray-600 text-xl mt-6 leading-8">
+          <p className="  text-xl mt-6 leading-8">
             Generate personalized travel itineraries, discover amazing
             destinations, save trips, and manage your adventures with
             TripGenie AI.

@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
+import EmptyState from "../../components/common/EmptyState";
 
 function SearchBox() {
   return (
+    
     <motion.div
       initial={{ opacity: 0, y: 80 }}
       animate={{ opacity: 1, y: 0 }}
@@ -27,7 +29,13 @@ function SearchBox() {
           <input
             type="number"
             placeholder="Days"
-            className="bg-white rounded-xl p-4 outline-none"
+            className="bg-white  rounded-xl p-4 outline-none"
+          />
+
+          <EmptyState
+            icon="🔍"
+            title="No Matching Trips"
+            description="Try another search keyword."
           />
 
           <button
@@ -35,6 +43,7 @@ function SearchBox() {
           >
             Generate Trip
           </button>
+
 
         </div>
 

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import API from "../../api/authApi";
 import toast from "react-hot-toast";
 
+import LoadingSkeleton from "../../components/common/LoadingSkeleton";
 import TripHeader from "../../components/trip/TripHeader";
 import WeatherCard from "../../components/trip/WeatherCard";
 import DayCard from "../../components/trip/DayCard";
@@ -57,7 +58,7 @@ function TripDetails() {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen text-xl">
-        Loading...
+        <LoadingSkeleton />
       </div>
     );
   }

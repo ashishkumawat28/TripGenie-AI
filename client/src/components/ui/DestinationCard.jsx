@@ -1,6 +1,6 @@
 function DestinationCard({ name, country, image }) {
   return (
-    <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300">
+    <div className="bg-white  rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300">
 
       <img
         src={image}

@@ -8,7 +8,7 @@ import {
 
 function DayCard({ day, destination }) {
   return (
-    <div className="bg-white rounded-3xl shadow-xl p-8 mb-8 hover:shadow-2xl transition duration-300">
+    <div className="bg-white  rounded-3xl shadow-xl p-8 mb-8 hover:shadow-2xl transition duration-300">
 
       <h2 className="text-3xl font-bold text-blue-700 mb-2">
         📅 Day {day.day}

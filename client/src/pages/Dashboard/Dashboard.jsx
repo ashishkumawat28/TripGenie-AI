@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 import LoadingSkeleton from "../../components/common/LoadingSkeleton";
-
+import EmptyState from "../../components/common/EmptyState";
 import API from "../../api/authApi";
 
 function Dashboard() {
@@ -41,7 +41,16 @@ function Dashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-blue-100 p-8">
+    <div className="min-h-screen bg-gray-100 bg-white  transition-colors duration-300">
+
+      <EmptyState
+        icon="📊"
+        title="No Dashboard Data"
+        description="Generate your first trip to see statistics."
+        buttonText="Generate Trip"
+        buttonLink="/planner"
+      />
+
 
       {/* Welcome */}
 
@@ -59,7 +68,7 @@ function Dashboard() {
 
       <div className="grid md:grid-cols-3 gap-6">
 
-        <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
+        <div className="bg-white  rounded-2xl shadow-xl p-8 text-center">
           <h2 className="text-4xl mb-3">🧳</h2>
 
           <p className="text-gray-500">
@@ -71,7 +80,7 @@ function Dashboard() {
           </h3>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
+        <div className="bg-white  rounded-2xl shadow-xl p-8 text-center">
           <h2 className="text-4xl mb-3">🌍</h2>
 
           <p className="text-gray-500">
@@ -83,7 +92,7 @@ function Dashboard() {
           </h3>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
+        <div className="bg-white  rounded-2xl shadow-xl p-8 text-center">
           <h2 className="text-4xl mb-3">🤖</h2>
 
           <p className="text-gray-500">
@@ -107,7 +116,7 @@ function Dashboard() {
 
         <div
           onClick={() => navigate("/planner")}
-          className="cursor-pointer bg-white rounded-2xl shadow-xl p-8 hover:scale-105 transition"
+          className="cursor-pointer bg-white  rounded-2xl shadow-xl p-8 hover:scale-105 transition"
         >
           <h2 className="text-4xl mb-4">
             ✨
@@ -124,7 +133,7 @@ function Dashboard() {
 
         <div
           onClick={() => navigate("/trips")}
-          className="cursor-pointer bg-white rounded-2xl shadow-xl p-8 hover:scale-105 transition"
+          className="cursor-pointer bg-white  rounded-2xl shadow-xl p-8 hover:scale-105 transition"
         >
           <h2 className="text-4xl mb-4">
             📚
@@ -141,7 +150,7 @@ function Dashboard() {
 
         <div
           onClick={() => navigate("/profile")}
-          className="cursor-pointer bg-white rounded-2xl shadow-xl p-8 hover:scale-105 transition"
+          className="cursor-pointer bg-white  rounded-2xl shadow-xl p-8 hover:scale-105 transition"
         >
           <h2 className="text-4xl mb-4">
             👤
@@ -161,7 +170,7 @@ function Dashboard() {
       {/* Recent Trip */}
 
       {stats?.latestTrip && (
-        <div className="bg-white rounded-2xl shadow-xl p-8 mt-12">
+        <div className="bg-white  rounded-2xl shadow-xl p-8 mt-12">
 
           <h2 className="text-3xl font-bold mb-6">
             🕒 Recent Trip

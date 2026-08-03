@@ -1,4 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+
+import { Link as ScrollLink } from "react-scroll";
+
 
 function HomeNavbar() {
   return (
@@ -12,14 +15,53 @@ function HomeNavbar() {
 
         <div className="flex items-center gap-8">
 
-          <a href="#features" className="hover:text-blue-600">
+          <ScrollLink
+            to="hero"
+            smooth={true}
+            duration={200}
+            offset={-100}
+            spy={true}
+            className="cursor-pointer hover:text-blue-600 transition"
+          >
+            Home
+          </ScrollLink>
+
+          <ScrollLink
+            to="features"
+            smooth
+            duration={200}
+            offset={-100}
+            spy
+            className="cursor-pointer hover:text-blue-600 transition"
+          >
             Features
-          </a>
+          </ScrollLink>
 
-          <a href="#destinations" className="hover:text-blue-600">
-            Destinations
-          </a>
+          <ScrollLink
+              to="destinations"
+              smooth
+              duration={200}
+              offset={-100}
+              spy
+              className="cursor-pointer hover:text-blue-600 transition"
+            >
+              Destinations
+          </ScrollLink>
 
+          <ScrollLink
+            to="contact"
+            smooth
+            duration={200}
+            offset={-100}
+            spy
+            className="cursor-pointer hover:text-blue-600 transition"
+          >
+            Contact
+          </ScrollLink>
+
+          <div className="flex items-center gap-4">
+        
+  
           <Link
             to="/login"
             className="bg-blue-600 text-white px-4 py-1.5 pb-2 rounded-xl transition duration-300 hover:scale-105"
@@ -33,6 +75,8 @@ function HomeNavbar() {
           >
             Register
           </Link>
+          </div>
+          
 
         </div>
 

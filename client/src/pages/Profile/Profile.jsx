@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import API from "../../api/authApi";
 import toast from "react-hot-toast";
+import EmptyState from "../../components/common/EmptyState";
+import LoadingSkeleton from "../../components/common/LoadingSkeleton";
 
 function Profile() {
   const [user, setUser] = useState(null);
@@ -40,17 +42,14 @@ function Profile() {
   };
 
   if (loading) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        Loading...
-      </div>
-    );
+    return <LoadingSkeleton />
+    
   }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-sky-50 to-blue-100 flex justify-center items-center p-8">
 
-      <div className="bg-white rounded-3xl shadow-2xl p-10 w-full max-w-md">
+      <div className="bg-white  rounded-3xl shadow-2xl p-10 w-full max-w-md">
 
         <div className="flex justify-center">
           <div className="w-28 h-28 rounded-full bg-blue-600 text-white flex items-center justify-center text-5xl font-bold">
@@ -91,6 +90,12 @@ function Profile() {
         </div>
 
       </div>
+
+      <EmptyState
+        icon="👤"
+        title="Profile Incomplete"
+        description="Update your profile information."
+      />
 
     </div>
   );

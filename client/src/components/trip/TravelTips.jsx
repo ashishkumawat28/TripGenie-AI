@@ -15,7 +15,7 @@ function TravelTips({ tips }) {
         {tips.map((tip, index) => (
           <li
             key={index}
-            className="bg-white rounded-xl p-4 shadow"
+            className="bg-white  rounded-xl p-4 shadow"
           >
             ✅ {tip}
           </li>

@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { NavLink, useNavigate } from "react-router-dom";
 
+
 function Navbar() {
   const navigate = useNavigate();
 

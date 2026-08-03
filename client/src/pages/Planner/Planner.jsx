@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import WeatherCard from "../../components/trip/WeatherCard";
 
+import ShareTripModal from "../../components/trip/ShareTripModal";
 import DestinationImage from "../../components/trip/DestinationImage";
 import { generateTripPDF } from "../../utils/pdfGenerator";
 import API from "../../api/authApi";
@@ -18,6 +19,7 @@ function Planner() {
   const [trip, setTrip] = useState(null);
   const [loading, setLoading] = useState(false);
   const [weather, setWeather] = useState(null);
+  const [showShare, setShowShare] = useState(false);
 
   const onSubmit = async (data) => {
     try {
@@ -83,7 +85,7 @@ function Planner() {
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="bg-white p-8 rounded-2xl shadow-2xl border border-gray-200 w-full max-w-lg"
+        className="bg-white  p-8 rounded-2xl shadow-2xl border border-gray-200 w-full max-w-lg"
       >
         <h1 className="text-5xl font-extrabold text-center text-blue-700">
             ✈️ TripGenie AI
@@ -139,15 +141,6 @@ function Planner() {
       {trip && (
         <div className="w-full max-w-5xl mt-10">
 
-          <div className="flex justify-end mb-5">
-            
-            <button
-              onClick={() => generateTripPDF(trip)}
-              className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg transition"
-            >
-              📄 Download PDF
-            </button>
-          </div>
 
           <DestinationImage
             image={image}
@@ -163,22 +156,51 @@ function Planner() {
                 key={day.day}
                 day={day}
               />
-            ))}
+          ))}
 
-            <div className="flex justify-end mb-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
+
+            {/* Left */}
+            <button
+              onClick={() => generateTripPDF(trip)}
+              className="w-full md:w-auto bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg transition"
+            >
+              📄 Download PDF
+            </button>
+
+            {/* Right */}
+            <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+
               <button
                 onClick={saveTrip}
-                className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl font-semibold"
+                className="w-full md:w-auto bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg transition"
               >
                 💾 Save Trip
               </button>
+
+              <button
+                onClick={() => setShowShare(true)}
+                className="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg transition"
+              >
+                📤 Share Trip
+              </button>
+
             </div>
+
+          </div>
 
           {Array.isArray(trip.travelTips) && (
             <TravelTips tips={trip.travelTips} />
           )}
 
         </div>
+      )}
+
+      {showShare && (
+        <ShareTripModal
+          trip={trip}
+          onClose={() => setShowShare(false)}
+        />
       )}
     </div>
   );

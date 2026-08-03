@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import tripAPI from "../../api/tripApi";
+import API from "../../api/authApi";
 import toast from "react-hot-toast";
 
 import TripHeader from "../../components/trip/TripHeader";
@@ -24,7 +24,7 @@ function TripDetails() {
       const token = localStorage.getItem("token");
 
       // Fetch Trip
-      const tripRes = await tripAPI.get(`/history/${id}`, {
+      const tripRes = await API.get(`/history/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -36,7 +36,7 @@ function TripDetails() {
 
       // Fetch Weather
       if (tripData?.destination) {
-        const weatherRes = await tripAPI.get(
+        const weatherRes = await API.get(
           `/weather/${encodeURIComponent(tripData.destination)}`
         );
 

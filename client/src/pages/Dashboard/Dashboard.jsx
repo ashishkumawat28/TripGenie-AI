@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 
 import LoadingSkeleton from "../../components/common/LoadingSkeleton";
 
-import tripAPI from "../../api/tripApi";
+import API from "../../api/authApi";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ function Dashboard() {
     try {
       const token = localStorage.getItem("token");
 
-      const res = await tripAPI.get("/dashboard", {
+      const res = await API.get("/dashboard", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

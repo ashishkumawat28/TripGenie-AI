@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import tripAPI from "../../api/tripApi";
+import API from "../../api/authApi";
 import toast from "react-hot-toast";
 
 function Profile() {
@@ -15,13 +15,13 @@ function Profile() {
     try {
       const token = localStorage.getItem("token");
 
-      const profileRes = await tripAPI.get("/auth/profile", {
+      const profileRes = await API.get("/auth/profile", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
 
-      const countRes = await tripAPI.get("/history/count", {
+      const countRes = await API.get("/history/count", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

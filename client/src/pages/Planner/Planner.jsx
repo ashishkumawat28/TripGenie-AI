@@ -5,7 +5,7 @@ import WeatherCard from "../../components/trip/WeatherCard";
 
 import DestinationImage from "../../components/trip/DestinationImage";
 import { generateTripPDF } from "../../utils/pdfGenerator";
-import tripAPI from "../../api/tripApi";
+import API from "../../api/authApi";
 
 import TripHeader from "../../components/trip/TripHeader";
 import DayCard from "../../components/trip/DayCard";
@@ -23,19 +23,19 @@ function Planner() {
     try {
       setLoading(true);
 
-      const res = await tripAPI.post("/trip/generate", data);
+      const res = await API.post("/trip/generate", data);
 
       console.log("API Response:", res.data);
 
       setTrip(res.data.trip);
 
-      const weatherRes = await tripAPI.get(
+      const weatherRes = await API.get(
         `/weather/${encodeURIComponent(res.data.trip.destination)}`
       );
 
       setWeather(weatherRes.data.weather);
 
-      const imageRes = await tripAPI.get(
+      const imageRes = await API.get(
         `/image/${encodeURIComponent(res.data.trip.destination)}`
       );
 
@@ -60,7 +60,7 @@ function Planner() {
     try {
       const token = localStorage.getItem("token");
 
-      await tripAPI.post(
+      await API.post(
         "/history/save",
         trip,
         {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import tripAPI from "../../api/tripApi";
+import API from "../../api/authApi";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
@@ -13,7 +13,7 @@ function Trips() {
     try {
       const token = localStorage.getItem("token");
 
-      const res = await tripAPI.get("/history", {
+      const res = await API.get("/history", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -45,7 +45,7 @@ function Trips() {
       try {
         const token = localStorage.getItem("token");
 
-        await tripAPI.delete(`/history/${id}`, {
+        await API.delete(`/history/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

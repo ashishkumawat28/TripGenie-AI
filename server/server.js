@@ -18,7 +18,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://YOUR-VERCEL-URL.vercel.app",
+      "https://tripgenie-ai-alpha.vercel.app",
     ],
     credentials: true,
   })

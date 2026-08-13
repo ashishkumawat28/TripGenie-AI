@@ -1,3 +1,4 @@
+
 import {
   MapPin,
   Hotel,
@@ -8,34 +9,107 @@ import {
 
 function DayCard({ day, destination }) {
   return (
-    <div className="bg-white  rounded-3xl shadow-xl p-8 mb-8 hover:shadow-2xl transition duration-300">
+    <div
+      className="
+        bg-white/10
+        backdrop-blur-xl
+        border
+        border-white/20
+        rounded-[30px]
+        shadow-2xl
+        p-8
+        mb-10
+        transition-all
+        duration-500
+        hover:border-cyan-400/40
+        hover:shadow-[0_0_40px_rgba(59,130,246,0.25)]
+      "
+    >
 
-      <h2 className="text-3xl font-bold text-blue-700 mb-2">
-        📅 Day {day.day}
-      </h2>
+      {/* Top */}
 
-      <p className="text-xl font-semibold text-gray-700 mb-6">
-        {day.title}
-      </p>
+      <div className="flex flex-col md:flex-row justify-between md:items-center gap-5">
+
+        <div>
+
+          <h2 className="text-4xl font-serif font-bold text-white">
+
+            📅 Day {day.day}
+
+          </h2>
+
+          <p className="text-cyan-300 text-xl mt-2">
+
+            {day.title}
+
+          </p>
+
+        </div>
+
+        <div
+          className="
+            bg-white/10
+            backdrop-blur-xl
+            border
+            border-white/20
+            rounded-2xl
+            px-6
+            py-4
+          "
+        >
+
+          <p className="text-white/70 text-sm">
+
+            Estimated Cost
+
+          </p>
+
+          <p className="text-2xl font-bold text-cyan-300">
+
+            {day.estimatedCost}
+
+          </p>
+
+        </div>
+
+      </div>
 
       {/* Places */}
 
-      <div className="mb-6">
-        <div className="flex items-center gap-2 mb-3">
-          <MapPin className="text-red-500" />
-          <h3 className="font-bold text-lg">
+      <div className="mt-10">
+
+        <div className="flex items-center gap-3 mb-5">
+
+          <MapPin className="text-red-400" />
+
+          <h3 className="text-2xl font-semibold text-white">
+
             Places to Visit
+
           </h3>
+
         </div>
 
-        <div className="space-y-4 ml-8">
+        <div className="space-y-4">
+
           {day.places.map((place, index) => (
+
             <div
               key={index}
-              className="bg-gray-50 rounded-xl p-3 mb-3"
+              className="
+                bg-white/10
+                backdrop-blur-xl
+                border
+                border-white/20
+                rounded-2xl
+                p-5
+              "
             >
-              <p className="font-medium">
-                • {place}
+
+              <p className="text-white text-lg">
+
+                {place}
+
               </p>
 
               <a
@@ -44,57 +118,134 @@ function DayCard({ day, destination }) {
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 mt-2 text-blue-600 hover:text-blue-800 hover:underline"
+                className="inline-flex items-center gap-2 mt-3 text-cyan-300 hover:text-cyan-200"
               >
                 <MapPinned size={18} />
+
                 Open in Google Maps
+
               </a>
+
             </div>
+
           ))}
+
         </div>
+
       </div>
 
       {/* Food */}
 
-      <div className="mb-6">
-        <div className="flex items-center gap-2 mb-3">
-          <Utensils className="text-orange-500" />
-          <h3 className="font-bold text-lg">
-            Food
+      <div className="mt-10">
+
+        <div className="flex items-center gap-3 mb-5">
+
+          <Utensils className="text-orange-400" />
+
+          <h3 className="text-2xl font-semibold text-white">
+
+            Recommended Food
+
           </h3>
+
         </div>
 
-        <ul className="space-y-2 ml-8">
+        <div className="flex flex-wrap gap-4">
+
           {day.food.map((food, index) => (
-            <li key={index}>• {food}</li>
+
+            <span
+              key={index}
+              className="
+                px-5
+                py-3
+                rounded-full
+                bg-white/10
+                backdrop-blur-xl
+                border
+                border-white/20
+                text-white
+              "
+            >
+              🍴 {food}
+            </span>
+
           ))}
-        </ul>
+
+        </div>
+
       </div>
 
-      {/* Bottom Cards */}
+      {/* Bottom */}
 
-      <div className="grid md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
 
-        <div className="bg-gray-100 rounded-xl p-4 flex items-center gap-3">
-          <Hotel className="text-blue-600" />
+        <div
+          className="
+            bg-white/10
+            backdrop-blur-xl
+            border
+            border-white/20
+            rounded-2xl
+            p-6
+            flex
+            items-center
+            gap-4
+          "
+        >
+
+          <Hotel className="text-cyan-300" size={32} />
+
           <div>
-            <p className="font-semibold">
+
+            <p className="text-white/70">
+
               Hotel
+
             </p>
 
-            <p>{day.hotel}</p>
+            <p className="text-white font-semibold">
+
+              {day.hotel}
+
+            </p>
+
           </div>
+
         </div>
 
-        <div className="bg-green-100 rounded-xl p-4 flex items-center gap-3">
-          <Wallet className="text-green-600" />
+        <div
+          className="
+            bg-white/10
+            backdrop-blur-xl
+            border
+            border-white/20
+            rounded-2xl
+            p-6
+            flex
+            items-center
+            gap-4
+          "
+        >
+
+          <Wallet className="text-green-400" size={32} />
+
           <div>
-            <p className="font-semibold">
-              Estimated Cost
+
+            <p className="text-white/70">
+
+              Budget
+
             </p>
 
-            <p>{day.estimatedCost}</p>
+            <p className="text-white font-semibold">
+
+              {day.estimatedCost}
+
+            </p>
+
           </div>
+
         </div>
 
       </div>

@@ -16,10 +16,20 @@ const userSchema = new mongoose.Schema(
       trim: true,
     },
 
+    emailOTP: {
+      type: String,
+      default: "",
+    },
+
+    otpExpiry: {
+      type: Date,
+    },
+
     password: {
       type: String,
-      required: true,
+      required: false,
       minlength: 6,
+      default: "",
     },
 
     profileImage: {

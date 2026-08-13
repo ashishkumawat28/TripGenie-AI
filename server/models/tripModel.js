@@ -18,6 +18,18 @@ const tripSchema = new mongoose.Schema(
       required: true,
     },
 
+    travelStyle: {
+      type: String,
+      enum: ["Solo", "Friends", "Family", "Couple"],
+      required: true,
+    },
+
+    tripStatus: {
+      type: String,
+      enum: ["Pending", "Completed"],
+      default: "Pending",
+    },
+
     totalBudget: {
       type: String,
       required: true,

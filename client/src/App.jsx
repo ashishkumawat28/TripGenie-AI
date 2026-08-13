@@ -12,6 +12,8 @@ import Planner from "./pages/Planner/Planner";
 import Trips from "./pages/Trips/Trips";
 import TripDetails from "./pages/TripDetails/TripDetails";
 import Profile from "./pages/Profile/Profile";
+import ForgotPassword from "./pages/autha/ForgotPassword";
+import GoogleSuccess from "./pages/autha/GoogleSuccess";
 
 import NotFound from "./pages/NotFound/NotFound";
 
@@ -28,7 +30,15 @@ function App() {
 
         <Route path="/register" element={<Register />} />
 
+        <Route
+          path="/forgot-password"
+          element={<ForgotPassword />}
+        />
 
+        <Route
+          path="/google-success"
+          element={<GoogleSuccess />}
+        />
 
         {/* Protected Routes */}
 
@@ -51,7 +61,6 @@ function App() {
         </Route>
 
 
-
         {/* 404 */}
 
         <Route path="*" element={<NotFound />} />
@@ -62,3 +71,15 @@ function App() {
 }
 
 export default App;
+
+
+
+// function App() {
+//   return (
+//     <div>
+//       <h1>Hello React</h1>
+//     </div>
+//   );
+// }
+
+// export default App;

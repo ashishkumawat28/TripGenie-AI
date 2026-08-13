@@ -19,6 +19,7 @@ export const generateTripPlan = async (req, res) => {
 
         {
         "tripTitle": "",
+        "travelStyle",
         "destination": "",
         "days": [
             {

@@ -12,7 +12,7 @@ function ShareTripModal({ trip, onClose }) {
 
 💰 Budget: ${trip.totalBudget}
 
-Generated using TripGenie AI
+Generated using voyara AI
 `;
 
   const copySummary = async () => {

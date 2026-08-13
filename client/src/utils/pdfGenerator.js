@@ -7,7 +7,7 @@ export const generateTripPDF = (trip) => {
   // Title
   doc.setFontSize(22);
   doc.setTextColor(30, 64, 175);
-  doc.text("TripGenie AI", 14, 20);
+  doc.text("Voyara AI", 14, 20);
 
   // Trip Info
   doc.setFontSize(16);

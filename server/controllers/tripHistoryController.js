@@ -97,18 +97,66 @@ export const deleteTrip = async (req, res) => {
 
 export const getTripCount = async (req, res) => {
   try {
-    const count = await Trip.countDocuments({
+    const totalTrips = await Trip.countDocuments({
       user: req.user._id,
     });
 
-    res.status(200).json({
-      success: true,
-      count,
+    const completedTrips = await Trip.countDocuments({
+      user: req.user._id,
+      tripStatus: "Completed",
+    });
+
+    const pendingTrips = await Trip.countDocuments({
+      user: req.user._id,
+      tripStatus: "Pending",
+    });
+
+    res.json({
+      totalTrips,
+      completedTrips,
+      pendingTrips,
+      savedTrips: totalTrips,
+    });
+
+  } catch (error) {
+
+    res.status(500).json({
+      message: error.message,
+    });
+
+  }
+};
+
+
+
+export const updateTripStatus = async (req, res) => {
+  try {
+    const trip = await Trip.findOne({
+      _id: req.params.id,
+      user: req.user._id,
+    });
+
+    if (!trip) {
+      return res.status(404).json({
+        message: "Trip not found",
+      });
+    }
+
+    trip.tripStatus =
+      trip.tripStatus === "Pending"
+        ? "Completed"
+        : "Pending";
+
+    await trip.save();
+
+    res.json({
+      message: "Trip status updated",
+      trip,
     });
   } catch (error) {
     res.status(500).json({
-      success: false,
       message: error.message,
     });
   }
 };
+

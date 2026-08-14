@@ -1,4 +1,4 @@
-
+import DashboardBg from "../../assets/dashboard/dashboard-bg.jpg";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -78,7 +78,7 @@ function Dashboard() {
         className="fixed inset-0 -z-20 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage:
-            `url("/src/assets/dashboard/dashboard-bg.jpg")`,
+             `url(${DashboardBg})`,
         }}
       />
 

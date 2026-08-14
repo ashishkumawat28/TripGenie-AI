@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import API from "../../api/authApi";
 import { Eye, EyeOff } from "lucide-react";
-
+import registerBg from "../../assets/register/register-bg.jpg";
 function Register() {
   const navigate = useNavigate();
 
@@ -113,7 +113,7 @@ function Register() {
     <div
       className="min-h-screen bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: `url("/src/assets/register/register-bg.jpg")`,
+        backgroundImage: `url(${registerBg})`,
       }}
     >
 

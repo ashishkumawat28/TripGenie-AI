@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import WeatherCard from "../../components/trip/WeatherCard";
 
 import ShareTripModal from "../../components/trip/ShareTripModal";
-import DestinationImage from "../../components/trip/DestinationImage";
+import plannerBg from "../../assets/planner/planner-bg.jpg";
 import { generateTripPDF } from "../../utils/pdfGenerator";
 import API from "../../api/authApi";
 
@@ -88,7 +88,7 @@ function Planner() {
     <div
       className="min-h-screen bg-cover bg-center bg-no-repeat bg-fixed"
       style={{
-        backgroundImage: `url("/src/assets/planner/planner-bg.jpg")`,
+        backgroundImage: `url(${plannerBg})`,
       }}
     >
 

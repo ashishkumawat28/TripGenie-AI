@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import API from "../../api/authApi";
 import toast from "react-hot-toast";
 import LoadingSkeleton from "../../components/common/LoadingSkeleton";
+import profileBg from "../../assets/background/background-bg.jpg";
 
 function Profile() {
   const [user, setUser] = useState(null);
@@ -256,7 +257,7 @@ function Profile() {
       "
       style={{
         backgroundImage:
-          `url("/src/assets/background/background-bg.jpg")`,
+          `url(${profileBg})`,
       }}
     >
 

@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import API from "../../api/authApi";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import loginBg from "../../assets/login/login-bg.jpg";
 
 function Login() {
   const navigate = useNavigate();
@@ -64,7 +65,7 @@ function Login() {
     <div
       className="min-h-screen bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: `url("/src/assets/login/login-bg.jpg")`,
+        backgroundImage: `url(${loginBg})`,
       }}
     >
 

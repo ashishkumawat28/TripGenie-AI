@@ -12,6 +12,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { NavLink, useNavigate } from "react-router-dom";
+import logo from "../../assets/logo.png";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -129,7 +130,7 @@ function Navbar() {
                 duration-300
               "
             >
-              <img src={`/src/assets/logo.png`} alt="logo" />
+              <img src={logo} alt="Voyara logo" />
             </div>
 
 

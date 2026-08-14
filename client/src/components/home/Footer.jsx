@@ -1,13 +1,12 @@
 import {
-  Plane,
   ArrowUpRight,
   Mail,
   MapPin,
-  ArrowRight,
 } from "lucide-react";
 
 import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
+import logo from "../../assets/logo.png";
 
 function Footer() {
   return (
@@ -121,7 +120,7 @@ function Footer() {
                 "
               >
 
-                <img src={`/src/assets/logo.png`} alt="logo" />
+                <img src={logo} alt="Voyaralogo" />
 
               </div>
 

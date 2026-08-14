@@ -13,6 +13,7 @@ import {
   Mail,
   ArrowRight,
 } from "lucide-react";
+import logo from "../../assets/logo.png";
 
 function HomeNavbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -103,7 +104,7 @@ function HomeNavbar() {
                 "
               >
 
-                <img src={`/src/assets/logo.png`} alt="logo" />
+                <img src={logo} alt="Voyara logo" />
 
               </div>
 

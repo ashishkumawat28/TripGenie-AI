@@ -25,13 +25,15 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "http://voyaraai.vercel.app",
+      "https://voyaraai.vercel.app"
     ],
-    credentials: true,
+    credentials: true
   })
 );
 
 app.use(express.json());
+
+
 app.use(passport.initialize());
 
 // Routes

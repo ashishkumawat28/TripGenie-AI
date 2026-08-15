@@ -4,6 +4,7 @@ import API from "../../api/authApi";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import LoadingSkeleton from "../../components/common/LoadingSkeleton";
+import plannerBg from "../../assets/planner/planner-bg.jpg";
 
 
 function Trips() {
@@ -165,7 +166,7 @@ function Trips() {
     <div
       className="min-h-screen bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: `url("/src/assets/planner/planner-bg.jpg")`,
+        backgroundImage: `url(${plannerBg})`,
       }}
     >
 

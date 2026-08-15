@@ -96,7 +96,60 @@ function Planner() {
 
       <div className="min-h-screen bg-black/45">
       
+        {/* Overall dark layer */}
 
+        <div
+          className="
+            absolute
+            inset-0
+            bg-black/35
+          "
+        />
+
+
+        {/* Left dark gradient */}
+
+        <div
+          className="
+            absolute
+            inset-0
+            bg-gradient-to-r
+            from-[#080d16]/95
+            via-[#080d16]/60
+            to-transparent
+          "
+        />
+
+
+        {/* Bottom dark gradient */}
+
+        <div
+          className="
+            absolute
+            inset-x-0
+            bottom-0
+            h-[42%]
+            bg-gradient-to-t
+            from-[#080d16]
+            via-[#080d16]/85
+            to-transparent
+          "
+        />
+
+
+        {/* Top dark gradient */}
+
+        <div
+          className="
+            absolute
+            inset-x-0
+            top-0
+            h-40
+            bg-gradient-to-b
+            from-[#080d16]/10
+            to-transparent
+          "
+        />
       
     
         <div className="max-w-7xl mx-auto px-6 pt-30 pb-10">
@@ -119,7 +172,7 @@ function Planner() {
 
                   Plan Your
 
-                  <span className="block text-cyan-300">
+                  <span className="block italic text-[#f0df9a]">
 
                     Dream Trip
 
@@ -127,7 +180,7 @@ function Planner() {
 
                 </h1>
 
-                <p className="text-white/90 text-lg md:text-xl mt-6 max-w-3xl mx-auto leading-8">
+                <p className="text-white/90 italic text-lg md:text-xl mt-6 max-w-3xl mx-auto leading-8">
 
                   Create your perfect journey in seconds.
 
